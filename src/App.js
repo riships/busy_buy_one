@@ -1,12 +1,15 @@
+import React, { useState } from 'react';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
-function App() {
+const App = () => {
+  const [isSignIn, setIsSignIn] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        App
-      </header>
+    <div>
+      {isSignIn ? <SignIn isSignIn={isSignIn} setIsSignIn={setIsSignIn} /> : <SignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />}
     </div>
   );
-}
+};
 
 export default App;
