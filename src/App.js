@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
+
+import Navbar from './components/Navbar';
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import Home from './pages/Home';
 
 const App = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />
+    }
+  ])
   return (
-    <div>
-      {isSignIn ? <SignIn isSignIn={isSignIn} setIsSignIn={setIsSignIn} /> : <SignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />}
-    </div>
+    <RouterProvider router={router} />
   );
 };
 

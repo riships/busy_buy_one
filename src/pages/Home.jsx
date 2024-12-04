@@ -1,9 +1,14 @@
 import React from 'react'
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
 function Home() {
     return (
-        <div>Home</div>
+        <>
+            <Navbar />
+            {isSignIn ? <SignIn isSignIn={isSignIn} setIsSignIn={setIsSignIn} /> : <SignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />}
+        </>
     )
 }
 
-export default Home
+export default Home;
