@@ -1,11 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
+import env from "react-dotenv";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDXPj6KoHnzyBt4MENWB29XupNG7CsDr8Q",
+    apiKey: env.FIREBASEAPIKEY,
     authDomain: "busybuyone-fc874.firebaseapp.com",
     projectId: "busybuyone-fc874",
     storageBucket: "busybuyone-fc874.firebasestorage.app",
