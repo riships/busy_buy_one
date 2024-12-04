@@ -1,12 +1,14 @@
-import React from 'react'
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
+import React, { useEffect } from 'react'
+import { addDataToCollection } from '../utils/utils';
+
 
 function Home() {
+    useEffect(() => {
+        addDataToCollection()
+    }, [])
     return (
         <>
-            <Navbar />
-            {isSignIn ? <SignIn isSignIn={isSignIn} setIsSignIn={setIsSignIn} /> : <SignUp isSignIn={isSignIn} setIsSignIn={setIsSignIn} />}
+
         </>
     )
 }
