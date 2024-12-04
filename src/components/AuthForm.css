@@ -34,7 +34,7 @@
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #FFCFEF;
     border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
@@ -42,7 +42,7 @@
 }
 
 .auth-form button {
-    background: #aa4dbc;
+    background: #0A97B0;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -50,7 +50,7 @@
 }
 
 .auth-form button:hover {
-    background: #942ea1;
+    background: #0ca9c4;
 }
 
 .divider {
@@ -68,7 +68,7 @@
     content: '';
     height: 1px;
     width: 40%;
-    background: #ddd;
+    background: #FFCFEF;
     position: absolute;
 }
 
