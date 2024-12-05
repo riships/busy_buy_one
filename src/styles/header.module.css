@@ -1,0 +1,8 @@
+.header {
+    height: 65px;
+    background-color: #0ca9c4;
+}
+
+nav {
+    display: flex;
+}

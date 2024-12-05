@@ -1,9 +1,9 @@
 // components/SignIn.jsx
 import React, { useState } from 'react';
-import './AuthForm.css';
+import style from '../styles/authform.module.css';
 
-const SignIn = ({ isSignIn, setIsSignIn }) => {
-    const [formData, setFormData] = useState({ email: '', password: '' });
+const SignIn = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', password: '' });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -17,8 +17,8 @@ const SignIn = ({ isSignIn, setIsSignIn }) => {
     };
 
     return (
-        <div className="auth-container">
-            <form onSubmit={handleSubmit} className="auth-form">
+        <div className={style.auth_container}>
+            <form onSubmit={handleSubmit} className={style.auth_form}>
                 <h2>Sign In</h2>
                 <input
                     type="email"
@@ -37,10 +37,10 @@ const SignIn = ({ isSignIn, setIsSignIn }) => {
                     required
                 />
                 <button type="submit" style={{ marginBottom: 0 }}>Sign In</button>
-                <div className="divider">
+                <div className={style.divider}>
                     <span>OR</span>
                 </div>
-                <button onClick={() => setIsSignIn(!isSignIn)}>
+                <button>
                     Sign Up
                 </button>
             </form>

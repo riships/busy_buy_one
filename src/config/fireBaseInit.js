@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth } from 'firebase/auth';
+import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import env from "react-dotenv";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -16,7 +16,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+let app;
+try {
+    app = initializeApp(firebaseConfig);
+} catch (error) {
+    console.error("Firebase initialization error:", error);
+}
+
 // const analytics = getAnalytics(app);
-export const db = getFirestore(app)
-export const auth = getAuth(app);
+const db = getFirestore(app)
+const auth = getAuth();
+setPersistence(auth, browserLocalPersistence);
+
+export { db };

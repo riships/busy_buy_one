@@ -17,8 +17,8 @@ const addDataToCollection = async () => {
             const docRef = doc(db, "products", product.id.toString());
             batch.set(docRef, product);
         });
-
         const res = await batch.commit();
+        return res;
     } catch (error) {
         console.log(error);
     }

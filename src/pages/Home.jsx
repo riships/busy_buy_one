@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react'
-import { addDataToCollection } from '../utils/utils';
+import React from 'react'
 
 
 function Home() {
-    useEffect(() => {
-        addDataToCollection()
-    }, [])
     return (
         <>
 
