@@ -7,7 +7,7 @@ function Header() {
         <>
             <header className={style.header}>
                 <nav>
-                    <Link to='/'><img src='' /></Link>
+                    <Link to='/'><img src='' alt='logo' /></Link>
                     <div >
 
                     </div>

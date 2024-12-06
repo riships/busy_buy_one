@@ -41,7 +41,7 @@ const ProductState = ({ children }) => {
         const {
             searchQuery,
             priceRange,
-            catergories: { mensFashion, womensFashion, jewelery, electronics },
+            categories: { mensFashion, womensFashion, jewelery, electronics },
         } = filterObj
         let filteredProducts = state.products;
         if (searchQuery) {

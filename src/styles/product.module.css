@@ -1,7 +1,38 @@
 .productCard {
     display: flex;
     flex-direction: column;
-    width: 180px;
-    background-color: aliceblue;
+    width: 310px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
     border: 1px solid rgb(108, 107, 107);
+    padding: 15px;
+    border-radius: 6px;
+    transition: all 0.5s ease-in-out;
+}
+
+.productCard:hover {
+    box-shadow: 0 0 32px 0 #6666;
+    transition: all 0.5s ease-in-out;
+}
+
+.productCard .img_div {
+    flex: 1 1;
+}
+
+.productCard .details_div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.productCard .img_div img {
+    object-fit: contain;
+}
+
+.productList {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
