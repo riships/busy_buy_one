@@ -12,8 +12,8 @@ function ProductCard({ product }) {
                     <img src={image} alt={category} height="100%" width="100%" />
                 </div>
                 <div className={style.details_div}>
-                    <p>{title}</p>
-                    <p>{price * 100}</p>
+                    <p>{title.slice(0, 250)}</p>
+                    <p style={{ fontWeight: '700' }} className='fs-6'>₹ {price * 100}</p>
                     <Button onClick={() => { }}>Add To Cart</Button>
                 </div>
             </div>
