@@ -4,8 +4,6 @@ import style from '../../styles/product.module.css'
 import { Container } from 'react-bootstrap';
 
 function ProductList({ products }) {
-    console.log(products);
-
     return (
         <>
             <Container className='my-4'>

@@ -40,14 +40,15 @@ function Home() {
 
     return (
         <>
-            <div>
-                <div>
-                    <Filter
-                        setPriceRange={setPriceRange}
-                        setCategories={setCategories}
-                        priceRange={priceRange} />
+            <div className='custom_container'>
+                <div className='searchBar'>
+                    <input type='text' placeholder='Search By Name' onKeyUp={(e) => setQuery(e.target.value)} />
                 </div>
-                <ProductList products={products.length > 0 ? products : filteredProducts} />
+                <Filter
+                    setPriceRange={setPriceRange}
+                    setCategories={setCategories}
+                    priceRange={priceRange} />
+                <ProductList products={filteredProducts.length > 0 ? filteredProducts : products} />
             </div>
         </>
     )

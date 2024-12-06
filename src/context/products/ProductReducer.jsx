@@ -14,7 +14,7 @@ const ProductsReducer = (state, action) => {
                 ...state,
                 loading: false,
                 error: false,
-                filteredProducts: action.payload
+                products: action.payload
             };
         case SET_FILTERED_PRODUCTS:
             return {

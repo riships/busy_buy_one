@@ -4,11 +4,12 @@ import { Form } from 'react-bootstrap';
 function Filter({ setPriceRange, setCategories, priceRange }) {
 
     return (
-        <div className="filter-container">
+        <aside className="filter_container">
+            <h2>Filter</h2>
             <Form>
                 <Form.Group>
                     <Form.Label>
-                        Selected Price Range: ${priceRange}
+                        Price Range: &#8377; {priceRange}
                     </Form.Label>
                     <Form.Range
                         min={0}
@@ -24,25 +25,49 @@ function Filter({ setPriceRange, setCategories, priceRange }) {
                         type="switch"
                         id="custom-switch"
                         label="Men's Clothing"
+                        onChange={(e) => {
+                            setCategories((prev) => ({
+                                ...prev,
+                                mensFashion: e.target.checked
+                            }))
+                        }}
                     />
                     <Form.Check // prettier-ignore
                         type="switch"
                         id="custom-switch"
                         label="Women's Clothing"
+                        onChange={(e) => {
+                            setCategories((prev) => ({
+                                ...prev,
+                                womensFashion: e.target.checked
+                            }))
+                        }}
                     />
                     <Form.Check // prettier-ignore
                         type="switch"
                         id="custom-switch"
                         label="Jewelery"
+                        onChange={(e) => {
+                            setCategories((prev) => ({
+                                ...prev,
+                                jewelery: e.target.checked
+                            }))
+                        }}
                     />
                     <Form.Check // prettier-ignore
                         type="switch"
                         id="custom-switch"
                         label="Electronics"
+                        onChange={(e) => {
+                            setCategories((prev) => ({
+                                ...prev,
+                                electronics: e.target.checked
+                            }))
+                        }}
                     />
                 </Form.Group>
             </Form>
-        </div>
+        </aside>
     );
 }
 

@@ -9,3 +9,47 @@
     background-color: #f9f9f9;
     height: 100vh;
 }
+
+.filter_container {
+    background: #9f9fa0ad;
+    border-radius: 10px;
+    left: 0;
+    padding: 1rem;
+    position: fixed;
+    text-align: center;
+    top: 30%;
+    width: 14rem;
+}
+
+.filter_container h2 {
+    font-size: 24px;
+    color: #0ca9c4;
+}
+
+.searchBar{
+    width: 25%;
+    margin: auto;
+}
+
+.searchBar input{
+    background: #f4f6f8 !important;
+    border: 1px solid #0ca9c4;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #0ca9c4 !important;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 1em 0 !important;
+    outline: none;
+    padding: 12px;
+    width: 100%;
+}
+
+.custom_container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}

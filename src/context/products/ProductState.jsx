@@ -43,37 +43,42 @@ const ProductState = ({ children }) => {
             priceRange,
             categories: { mensFashion, womensFashion, jewelery, electronics },
         } = filterObj
-        let filteredProducts = state.products;
+        console.log(mensFashion);
+
+        let filteredProductsNew = [...state.products];
+        console.log(filteredProductsNew);
+
+        if (priceRange) {
+            filteredProductsNew = filteredProductsNew.filter((product) => {
+                return product.price * 100 < priceRange
+            });
+        }
+
         if (searchQuery) {
-            filteredProducts.filter((product) => {
+            filteredProductsNew = filteredProductsNew.filter((product) => {
                 return product.title.toLowerCase().includes(searchQuery.toLowerCase());
             })
         }
 
         if (mensFashion || womensFashion || jewelery || electronics) {
-            filteredProducts = filteredProducts.filter((product) => {
-                if (mensFashion && product.title === 'men\'s clothing') {
+            filteredProductsNew = filteredProductsNew.filter((product) => {
+                if (mensFashion && product.category === 'men\'s clothing') {
                     return true;
                 }
-                if (womensFashion && product.title === 'women\'s clothing') {
+                if (womensFashion && product.category === 'women\'s clothing') {
                     return true;
                 }
-                if (electronics && product.title === 'electronics') {
+                if (electronics && product.category === 'electronics') {
                     return true;
                 }
-                if (jewelery && product.title === 'jewelery') {
+                if (jewelery && product.category === 'jewelery') {
                     return true;
                 }
                 return false;
             });
         }
 
-        if (priceRange) {
-            filteredProducts = filteredProducts.filter((product) => {
-                return product.price < priceRange;
-            });
-        }
-        dispatch({ type: SET_FILTERED_PRODUCTS, payload: filteredProducts });
+        dispatch({ type: SET_FILTERED_PRODUCTS, payload: filteredProductsNew });
     }
     return (
         <ProductContext.Provider

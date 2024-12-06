@@ -13,7 +13,7 @@ function ProductCard({ product }) {
                 </div>
                 <div className={style.details_div}>
                     <p>{title}</p>
-                    <p>{price}</p>
+                    <p>{price * 100}</p>
                     <Button onClick={() => { }}>Add To Cart</Button>
                 </div>
             </div>

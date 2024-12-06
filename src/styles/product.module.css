@@ -1,7 +1,7 @@
 .productCard {
     display: flex;
     flex-direction: column;
-    width: 310px;
+    width: 270px;
     justify-content: center;
     align-items: center;
     background-color: #fff;
