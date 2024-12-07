@@ -21,21 +21,29 @@ function Home() {
         error,
         loading,
         getAllProducts,
-        filterProducts
+        filterProducts,
+        message
     } = useContext(ProductContext);
 
 
     useEffect(() => {
         getAllProducts();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
     useEffect(() => {
         filterProducts({ priceRange, categories, searchQuery: query })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [priceRange, query, categories])
+
 
     if (loading) {
         return <div className='text-center m-4'><Spinner /></div>
+    }
+
+    if (error) {
+        return <div className='text-center m-4'><p className='mb-0 text-danger'>{message}</p></div>
     }
 
     return (

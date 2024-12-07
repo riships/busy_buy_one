@@ -1,9 +1,20 @@
 // components/SignIn.jsx
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import style from '../styles/authform.module.css';
+import { Link } from 'react-router';
+import AuthContext from '../context/Auth/AuthContext';
+import { useNavigate } from 'react-router';
 
 const SignIn = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+    const [formData, setFormData] = useState({ email: '', password: '' });
+    const { user, login, error, message } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [user])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -12,8 +23,8 @@ const SignIn = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Signin Data:', formData);
-        // Add API call for signin
+        const { email, password } = formData
+        login(email, password)
     };
 
     return (
@@ -40,9 +51,11 @@ const SignIn = () => {
                 <div className={style.divider}>
                     <span>OR</span>
                 </div>
-                <button>
-                    Sign Up
-                </button>
+                <Link to='/signup'>
+                    <button>
+                        Sign Up
+                    </button>
+                </Link>
             </form>
         </div>
     );

@@ -10,10 +10,8 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import AuthContext from './context/Auth/AuthContext';
 
 const App = () => {
-
   const auth = getAuth();
-
-  const { setAuthUser } = useContext(AuthContext);
+  const { setAuthUser, user } = useContext(AuthContext);
 
   // Authenticate the user if he is already logged in and set the user in the auth context.
   useEffect(() => {
@@ -22,6 +20,7 @@ const App = () => {
         setAuthUser(user);
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const router = createBrowserRouter([
@@ -35,7 +34,7 @@ const App = () => {
       )
     },
     {
-      path: '/login',
+      path: '/signin',
       element: (
         <>
           <Header />

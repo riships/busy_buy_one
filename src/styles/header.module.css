@@ -1,8 +1,36 @@
 .header {
     height: 65px;
     background-color: #0ca9c4;
+    box-shadow: -1px 5px 5px 0px rgba(168, 168, 168, 1);
 }
 
-nav {
+.custom_nav {
+    height: 65px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom_nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.custom_links {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 40px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.custom_links li {
+    padding: 5px 10px;
+    margin: 0 5px;
 }

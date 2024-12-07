@@ -32,7 +32,7 @@
 
 .productList {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     gap: 15px;
     flex-wrap: wrap;
 }

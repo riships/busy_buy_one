@@ -10,7 +10,7 @@ import {
 } from "./types";
 import AuthReducer from "./AuthReducer";
 import AuthContext from "./AuthContext";
-import { getAuth, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 
 const AuthState = ({ children }) => {
@@ -29,7 +29,7 @@ const AuthState = ({ children }) => {
     }
 
     const login = async (email, password) => {
-        dispatch({ type: TOGGLE_LOADING })
+        dispatch({ type: TOGGLE_LOADING })        
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
             console.log(res);
@@ -46,13 +46,12 @@ const AuthState = ({ children }) => {
         dispatch({ type: TOGGLE_LOADING });
         try {
             const { name, email, password } = formData;
-            const res = await signInWithEmailAndPassword(auth, email, password);
+            const res = await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(auth.currentUser, {
                 displayName: name,
             });
             dispatch({ type: SIGNUP_SUCCESS, payload: res.user });
         } catch (error) {
-            console.log(error);
             dispatch({
                 type: SIGNUP_FAIL,
                 payload: error.message.split(": ")[1],
@@ -63,7 +62,6 @@ const AuthState = ({ children }) => {
     const logout = async () => {
         try {
             const res = await signOut(auth);
-            console.log(res);
             dispatch({ type: LOGOUT, payload: "Signed out successfully!" })
         } catch (error) {
             dispatch({ type: CLEAR_ERROR_MESSAGE });

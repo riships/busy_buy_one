@@ -1,19 +1,38 @@
 // components/SignUp.jsx
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import style from '../styles/authform.module.css';
 import { Link } from 'react-router';
+import AuthContext from '../context/Auth/AuthContext';
+import { Spinner } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
-const SignUp = ({ isSignIn, setIsSignIn }) => {
-    const [formData, setFormData] = useState({ email: '', password: '' });
+const SignUp = () => {
+    const { signUp, loading, error, message, user } = useContext(AuthContext);
+    const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+    const navigate = useNavigate();
 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [user])
+
+    if (loading) {
+        return <div className='text-center m-4'><Spinner /></div>
+    }
+
+    if (error) {
+        return <p className='text-center'>{message}</p>
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        signUp(formData)
     };
 
     return (
@@ -49,7 +68,7 @@ const SignUp = ({ isSignIn, setIsSignIn }) => {
                 <div className={style.divider}>
                     <span>OR</span>
                 </div>
-                <Link to='/login'>
+                <Link to='/signin'>
                     <button>Sign In</button>
                 </Link>
             </form>

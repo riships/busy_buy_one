@@ -43,10 +43,8 @@ const ProductState = ({ children }) => {
             priceRange,
             categories: { mensFashion, womensFashion, jewelery, electronics },
         } = filterObj
-        console.log(mensFashion);
 
         let filteredProductsNew = [...state.products];
-        console.log(filteredProductsNew);
 
         if (priceRange) {
             filteredProductsNew = filteredProductsNew.filter((product) => {
