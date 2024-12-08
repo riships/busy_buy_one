@@ -8,10 +8,13 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import AuthContext from './context/Auth/AuthContext';
+import MyOrders from './pages/MyOrders';
+import Cart from './pages/Cart';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   const auth = getAuth();
-  const { setAuthUser, user } = useContext(AuthContext);
+  const { setAuthUser } = useContext(AuthContext);
 
   // Authenticate the user if he is already logged in and set the user in the auth context.
   useEffect(() => {
@@ -33,6 +36,25 @@ const App = () => {
         </>
       )
     },
+    {
+      path: '/myOrders',
+      element: (
+        <ProtectedRoute>
+          <Header />
+          <MyOrders />
+        </ProtectedRoute>
+      )
+    },
+    {
+      path: '/cart',
+      element: (
+        <ProtectedRoute>
+          <Header />
+          <Cart />
+        </ProtectedRoute>
+      )
+    },
+
     {
       path: '/signin',
       element: (

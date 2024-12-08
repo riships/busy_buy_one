@@ -4,8 +4,10 @@ import style from '../styles/header.module.css'
 import AuthContext from '../context/Auth/AuthContext';
 
 function Header() {
-    const { user, logout, error } = useContext(AuthContext);
-
+    const { user, logout, error, message } = useContext(AuthContext);
+    if (error) {
+        return <div className='text-center'>{message}</div>
+    }
     return (
         <>
             <header className={style.header}>

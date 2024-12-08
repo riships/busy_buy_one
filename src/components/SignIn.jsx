@@ -14,6 +14,7 @@ const SignIn = () => {
         if (user) {
             navigate('/')
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     const handleChange = (e) => {
@@ -26,6 +27,10 @@ const SignIn = () => {
         const { email, password } = formData
         login(email, password)
     };
+
+    if (error) {
+        return <div className='text-center'>{message}</div>
+    }
 
     return (
         <div className={style.auth_container}>

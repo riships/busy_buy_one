@@ -32,7 +32,6 @@ const AuthState = ({ children }) => {
         dispatch({ type: TOGGLE_LOADING })        
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
-            console.log(res);
             dispatch({ type: LOGIN_SUCCESS, payload: res.user })
         } catch (error) {
             dispatch({
@@ -61,7 +60,7 @@ const AuthState = ({ children }) => {
 
     const logout = async () => {
         try {
-            const res = await signOut(auth);
+            await signOut(auth);
             dispatch({ type: LOGOUT, payload: "Signed out successfully!" })
         } catch (error) {
             dispatch({ type: CLEAR_ERROR_MESSAGE });
