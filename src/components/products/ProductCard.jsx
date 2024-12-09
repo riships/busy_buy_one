@@ -14,7 +14,7 @@ function ProductCard({ product }) {
                 <div className={style.details_div}>
                     <p>{title.slice(0, 250)}</p>
                     <p style={{ fontWeight: '700' }} className='fs-6'>₹ {price * 100}</p>
-                    <AddToCartButton />
+                    <AddToCartButton productId={id} />
                 </div>
             </div>
         </>

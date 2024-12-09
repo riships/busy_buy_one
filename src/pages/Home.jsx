@@ -3,6 +3,8 @@ import ProductList from '../components/products/ProductList';
 import ProductContext from '../context/products/ProductContext';
 import { Spinner } from 'react-bootstrap';
 import Filter from '../components/Filter';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Home() {
@@ -48,7 +50,9 @@ function Home() {
 
     return (
         <>
+
             <div className='custom_container'>
+                <ToastContainer />
                 <div className='searchBar'>
                     <input type='text' placeholder='Search By Name' onKeyUp={(e) => setQuery(e.target.value)} />
                 </div>

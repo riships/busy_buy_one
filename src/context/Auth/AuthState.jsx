@@ -29,7 +29,7 @@ const AuthState = ({ children }) => {
     }
 
     const login = async (email, password) => {
-        dispatch({ type: TOGGLE_LOADING })        
+        dispatch({ type: TOGGLE_LOADING })
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
             dispatch({ type: LOGIN_SUCCESS, payload: res.user })
