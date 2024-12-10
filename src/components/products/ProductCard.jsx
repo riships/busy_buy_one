@@ -1,8 +1,9 @@
 import React from 'react'
 import style from '../../styles/product.module.css'
 import AddToCartButton from './AddToCartButton';
+import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 
-function ProductCard({ product }) {
+function ProductCard({ product, onCart, cartProductsMap }) {
     const { title, price, image, id, category } = product;
 
     return (
@@ -13,8 +14,17 @@ function ProductCard({ product }) {
                 </div>
                 <div className={style.details_div}>
                     <p>{title.slice(0, 250)}</p>
-                    <p style={{ fontWeight: '700' }} className='fs-6'>₹ {price * 100}</p>
-                    <AddToCartButton productId={id} />
+                    <div className='d-flex justify-content-between mb-2 fs-5'>
+                        <p style={{ fontWeight: '700' }} className='mb-0'>₹ {price * 100}</p>
+                        {onCart &&
+                            <div className='d-flex justify-content-between gap-2 align-items-center'>
+                                <span><FaMinusCircle /></span>
+                                <span>{cartProductsMap[product.id]}</span>
+                                <span><FaPlusCircle /></span>
+                            </div>
+                        }
+                    </div>
+                    <AddToCartButton onCart={onCart} productId={id} />
                 </div>
             </div>
         </>

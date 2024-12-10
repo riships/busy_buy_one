@@ -6,7 +6,7 @@ import { getUserCartProducts } from '../../utils/utils';
 import { setDoc, updateDoc } from 'firebase/firestore';
 import { toast, ToastContainer } from 'react-toastify';
 
-function AddToCartButton({ productId }) {
+function AddToCartButton({ productId, onCart }) {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate()
     const [addingProductToCart, setProductAddingToCart] = useState(false);
@@ -46,8 +46,8 @@ function AddToCartButton({ productId }) {
     }
 
     return (
-        <>
-            <Button onClick={handleAddPRoductToCart}>{addingProductToCart ? 'Adding...' : "Add To Cart"}</Button>
+        <>{onCart ? <Button variant='danger' onClick={handleAddPRoductToCart}>{addingProductToCart ? 'Adding...' : "Remove From Cart"}</Button> : <Button onClick={handleAddPRoductToCart}>{addingProductToCart ? 'Adding...' : "Add To Cart"}</Button>}
+
         </>
     )
 }
