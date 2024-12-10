@@ -42,9 +42,14 @@ function Cart() {
         <>
             <div>
                 {loading ? <div className='text-center my-4'><Spinner /></div> :
-                    <ProductList
-                        products={cartProducts}
-                    />
+                    <>
+                        <aside>
+                            
+                        </aside>
+                        <ProductList
+                            products={cartProducts}
+                        />
+                    </>
                 }
             </div>
         </>

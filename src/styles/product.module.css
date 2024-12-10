@@ -32,7 +32,8 @@
 
 .productList {
     display: flex;
-    justify-content: end;
+    justify-content: start;
     gap: 15px;
     flex-wrap: wrap;
+    padding-left: 130px;
 }
