@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import style from '../../styles/product.module.css'
 import { Container } from 'react-bootstrap';
 
-function ProductList({ products, onCart, cartProductsMap }) {
+function ProductList({ products, onCart, cartProductsMap, updateProductQuantity, filterProductFromState }) {
     return (
         <>
             <Container className='my-4'>
@@ -14,6 +14,8 @@ function ProductList({ products, onCart, cartProductsMap }) {
                             key={product.id}
                             product={product}
                             cartProductsMap={cartProductsMap}
+                            updateProductQuantity={updateProductQuantity}
+                            filterProductFromState={filterProductFromState}
                         />
                     ))}
                 </div>
