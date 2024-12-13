@@ -7,12 +7,12 @@ import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: env.FIREBASEAPIKEY,
-    authDomain: "busybuyone-fc874.firebaseapp.com",
-    projectId: "busybuyone-fc874",
-    storageBucket: "busybuyone-fc874.firebasestorage.app",
-    messagingSenderId: "693000435870",
-    appId: "1:693000435870:web:8fb60dcd963c9c8f50238f",
-    measurementId: "G-W8KSXKKQK9"
+    authDomain: env.AUTHDOMAIN,
+    projectId: env.PROJECTID,
+    storageBucket: env.STORAGEBUCKET,
+    messagingSenderId: env.MESSAGINGSENDERID,
+    appId: env.APPID,
+    measurementId: env.MEASUREMENTID
 };
 
 // Initialize Firebase
